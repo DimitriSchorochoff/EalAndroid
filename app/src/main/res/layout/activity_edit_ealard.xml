@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Squad.EditEalardActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/ealard_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginTop="@dimen/margin_vertical_large"
+            android:gravity="center"
+            android:hint="Ealard name"
+            android:textColor="@color/enable"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+            tools:text="Ealard" />
+
+        <TextView
+            android:id="@+id/ealard_essence_current"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginTop="@dimen/margin_vertical_large"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_name" />
+
+        <TextView
+            android:id="@+id/ealard_essence"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:text="Essence"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_essence_current"
+            app:layout_constraintStart_toEndOf="@+id/ealard_essence_current"
+            app:layout_constraintTop_toTopOf="@+id/ealard_essence_current" />
+
+        <ProgressBar
+            android:id="@+id/ealard_progressBar_essence"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_essence"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ealard_essence"
+            app:layout_constraintTop_toTopOf="@+id/ealard_essence" />
+
+        <TextView
+            android:id="@+id/ealard_vitality_max"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginTop="@dimen/margin_vertical_large"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="@+id/ealard_essence_current"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_essence" />
+
+        <TextView
+            android:id="@+id/ealard_vitality"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:text="Vitality"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_vitality_max"
+            app:layout_constraintStart_toEndOf="@+id/ealard_vitality_max"
+            app:layout_constraintTop_toTopOf="@+id/ealard_vitality_max" />
+
+        <EditText
+            android:id="@+id/ealard_editText_vitality"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_vitality"
+            app:layout_constraintStart_toStartOf="@+id/ealard_editText_energy"
+            app:layout_constraintTop_toTopOf="@+id/ealard_vitality" />
+
+        <Button
+            android:id="@+id/ealard_plus_vitality"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_vitality"
+            app:layout_constraintStart_toEndOf="@+id/ealard_editText_vitality"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_vitality" />
+
+        <Button
+            android:id="@+id/ealard_minus_vitality"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_vitality"
+            app:layout_constraintStart_toEndOf="@+id/ealard_plus_vitality"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_vitality" />
+
+        <TextView
+            android:id="@+id/ealard_energy_max"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginTop="@dimen/margin_vertical_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="@+id/ealard_vitality_max"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_vitality_max" />
+
+        <TextView
+            android:id="@+id/ealard_energy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:text="Energy"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_energy_max"
+            app:layout_constraintStart_toEndOf="@+id/ealard_energy_max"
+            app:layout_constraintTop_toTopOf="@+id/ealard_energy_max" />
+
+        <EditText
+            android:id="@+id/ealard_editText_energy"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_energy"
+            app:layout_constraintStart_toStartOf="@+id/ealard_editText_mobility"
+            app:layout_constraintTop_toTopOf="@+id/ealard_energy" />
+
+        <Button
+            android:id="@+id/ealard_plus_energy"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_energy"
+            app:layout_constraintStart_toEndOf="@+id/ealard_editText_energy"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_energy" />
+
+        <Button
+            android:id="@+id/ealard_minus_energy"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_energy"
+            app:layout_constraintStart_toEndOf="@+id/ealard_plus_energy"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_energy" />
+
+        <TextView
+            android:id="@+id/ealard_mobility_max"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginTop="@dimen/margin_vertical_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="@+id/ealard_energy_max"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_energy_max" />
+
+        <TextView
+            android:id="@+id/ealard_mobility"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:text="Mobility"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_mobility_max"
+            app:layout_constraintStart_toEndOf="@+id/ealard_mobility_max"
+            app:layout_constraintTop_toTopOf="@+id/ealard_mobility_max" />
+
+        <EditText
+            android:id="@+id/ealard_editText_mobility"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_mobility"
+            app:layout_constraintStart_toEndOf="@+id/ealard_mobility"
+            app:layout_constraintTop_toTopOf="@+id/ealard_mobility" />
+
+        <Button
+            android:id="@+id/ealard_plus_mobility"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_horizontal_tiny"
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_mobility"
+            app:layout_constraintStart_toEndOf="@+id/ealard_editText_mobility"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_mobility" />
+
+        <Button
+            android:id="@+id/ealard_minus_mobility"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="0dp"
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/ealard_editText_mobility"
+            app:layout_constraintStart_toEndOf="@+id/ealard_plus_mobility"
+            app:layout_constraintTop_toTopOf="@+id/ealard_editText_mobility" />
+
+        <TextView
+            android:id="@+id/ealard_spellbook_abilities"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginTop="@dimen/margin_vertical_large"
+            android:gravity="center"
+            android:text="Spellbook:"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="@+id/ealard_mobility_max"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_mobility_max" />
+
+        <Button
+            android:id="@+id/ealard_button_save"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_normal"
+            android:layout_marginBottom="@dimen/margin_vertical_normal"
+            android:text="Save this ealard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ealard_constraintLayout_sorter_spell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginTop="@dimen/margin_vertical_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_spellbook_abilities">
+
+            <TextView
+                android:id="@+id/ealard_element_sorter"
+                android:layout_width="66dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Elem"
+                android:textSize="@dimen/text_size_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ealard_name_sorter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/icon_size_normal"
+                android:gravity="center"
+                android:text="Name"
+                android:textSize="@dimen/text_size_normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ealard_energy_sorter"
+                android:layout_width="82dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Energy"
+                android:textSize="@dimen/text_size_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ealard_element_sorter"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ealard_effect_sorter"
+                android:layout_width="82dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Effect"
+                android:textSize="@dimen/text_size_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ealard_energy_sorter"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horizontal_normal"
+            android:layout_marginTop="@dimen/margin_vertical_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_normal"
+            app:layout_constraintBottom_toTopOf="@+id/ealard_button_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ealard_constraintLayout_sorter_spell">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ealard_Spellrecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margin_vertical_large" />
+
+            <ImageButton
+                android:id="@+id/ealard_imageButton_add_spell"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/icon_size_normal"
+                android:layout_gravity="bottom"
+                app:layout_anchor="@+id/ealard_Spellrecycler"
+                app:layout_anchorGravity="center_horizontal|bottom"
+                app:srcCompat="@drawable/ic_add" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

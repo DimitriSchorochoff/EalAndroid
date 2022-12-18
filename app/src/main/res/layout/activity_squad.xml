@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Squad.EditSquadActivity"
+    android:scrollbars="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/activity_squad_name_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:hint="Squad name"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        tools:text="Ealard" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_squad_mode_constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_squad_name_editText">
+
+        <TextView
+            android:id="@+id/activity_squad_mode_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Mode:"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_squad_mode_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginStart="@dimen/margin_horizontal_small"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_squad_mode_desc"
+            app:layout_constraintStart_toEndOf="@+id/activity_squad_mode_desc"
+            app:layout_constraintTop_toTopOf="@+id/activity_squad_mode_desc"
+            tools:text="Classic" />
+
+        <TextView
+            android:id="@+id/activity_squad_mode_criterion_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginTop="@dimen/margin_vertical_normal"
+            android:gravity="center"
+            android:text="Criterion:"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="@+id/activity_squad_mode_desc"
+            app:layout_constraintTop_toBottomOf="@+id/activity_squad_mode_desc" />
+
+        <TextView
+            android:id="@+id/activity_squad_mode_criterion_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_vertical_small"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_squad_mode_criterion_desc"
+            tools:text=" -Hello \n -Yo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:layout_marginBottom="@dimen/margin_vertical_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_squad_mode_constraintLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_squad_main_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:paddingBottom="@dimen/margin_vertical_normal"/>
+
+        <ImageButton
+            android:id="@+id/activity_squad_imageButton_addEalard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_gravity="bottom"
+            app:layout_anchor="@+id/activity_squad_main_recycler"
+            app:layout_anchorGravity="center_horizontal|bottom"
+            app:srcCompat="@drawable/ic_add" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

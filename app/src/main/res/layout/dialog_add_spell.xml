@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dialog_add_spell_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:text="Spellbook"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/dialog_spell_imageView_quit"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_spell_constraintLayout_sorter_spell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_spell_imageView_quit">
+
+        <TextView
+            android:id="@+id/dialog_spell_element_sorter"
+            android:layout_width="66dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="Elem"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_spell_name_sorter"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Name"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_spell_energy_sorter"
+            android:layout_width="82dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="Energy"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_spell_element_sorter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_spell_effect_sorter"
+            android:layout_width="82dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="Effect"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_spell_energy_sorter"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.example.eal.AdditionnalRessource.MaxHeightRecyclerView
+        android:id="@+id/dialog_spell_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_spell_constraintLayout_sorter_spell" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

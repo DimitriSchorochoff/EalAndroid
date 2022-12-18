@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardUseCompatPadding="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cell_spell_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cell_background_color">
+
+        <ImageButton
+            android:id="@+id/cell_spell_imageButton_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cell_spell_textView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Spell"
+            android:textColor="@drawable/edit_text_selector"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cell_spell_imageButton_action"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cell_spell_textView_power"
+            android:layout_width="36dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_spell_imageView_effect"
+            app:layout_constraintTop_toBottomOf="@+id/cell_spell_textView_name" />
+
+        <ImageView
+            android:id="@+id/cell_spell_imageView_effect"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_spell_textView_energy"
+            app:layout_constraintTop_toTopOf="@+id/cell_spell_textView_power" />
+
+        <TextView
+            android:id="@+id/cell_spell_textView_energy"
+            android:layout_width="36dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_spell_imageView_energy"
+            app:layout_constraintTop_toTopOf="@+id/cell_spell_imageView_effect" />
+
+        <ImageView
+            android:id="@+id/cell_spell_imageView_energy"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_spell_textView_element"
+            app:layout_constraintTop_toTopOf="@+id/cell_spell_textView_energy"
+            app:srcCompat="@android:drawable/ic_menu_compass" />
+
+        <TextView
+            android:id="@+id/cell_spell_textView_element"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cell_spell_imageView_energy" />
+
+        <ImageView
+            android:id="@+id/cell_spell_mastery_imageView"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_spell_textView_power"
+            app:layout_constraintTop_toBottomOf="@+id/cell_spell_textView_name"
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

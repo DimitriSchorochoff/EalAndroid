@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cell_player_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cell_background_color"
+        android:foreground="?selectableItemBackground">
+
+    <EditText
+        android:id="@+id/cell_player_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:textColor="@color/enable"
+        android:hint="Player name"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ealard" />
+
+    <TextView
+        android:id="@+id/cell_player_double_dot_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:text=":"
+        android:textColor="@color/enable"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/cell_player_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cell_player_score_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_small"
+        android:gravity="center"
+        android:textColor="@color/enable"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/cell_player_double_dot_desc"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
+    <ImageView
+        android:id="@+id/cell_player_icon"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

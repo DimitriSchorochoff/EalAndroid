@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SpellActivity"
+    android:scrollbars="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_shield_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:gravity="center"
+        android:text="Shield:"
+        android:textSize="@dimen/text_size_normal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_shield_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_shield_desc"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_shield_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_shield_desc"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/activity_play_entity_shield_imageView"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_shield_textView"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_shield_textView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_shield_textView"
+        app:srcCompat="@android:drawable/ic_lock_idle_lock"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/activity_play_entity_vitality_tV"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:text="Vitality:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_entity_shield_desc" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_vitality_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_vitality_tV"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_vitality_tV" />
+
+
+    <TextView
+        android:id="@+id/activity_play_entity_energy_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:text="Energy:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_play_entity_vitality_tV" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_energy_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_energy_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_energy_desc" />
+
+    <ImageView
+        android:id="@+id/activity_play_entity_energy_imageView"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_energy_textView"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_energy_textView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_energy_textView"
+        app:srcCompat="@android:drawable/ic_menu_compass" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_mobility_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:gravity="center"
+        android:text="Mobility:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_entity_energy_desc" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_mobility_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_mobility_desc"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_mobility_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_mobility_desc" />
+
+    <ImageView
+        android:id="@+id/activity_play_entity_mobility_imageView"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_mobility_textView"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_mobility_textView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_mobility_textView"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <Button
+        android:id="@+id/activity_play_entity_mobility_use"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_small"
+        android:text="Use mobility"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_mobility_imageView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_mobility_imageView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_play_entity_constraint_layout_sorter"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/icon_size_normal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_entity_mobility_desc">
+
+        <TextView
+            android:id="@+id/activity_play_entity_type_sorter"
+            android:layout_width="66dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Elem"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_play_entity_name_sorter"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Name"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_play_entity_energy_sorter"
+            android:layout_width="82dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Energy"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_play_entity_type_sorter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_play_entity_effect_sorter"
+            android:layout_width="82dp"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:text="Effect"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_play_entity_energy_sorter"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.example.eal.AdditionnalRessource.MaxHeightRecyclerView
+        android:id="@+id/activity_play_entity_recycler_spell"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:layout_marginBottom="@dimen/margin_vertical_large"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_entity_turn_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_entity_message_recycler_textView" />
+
+
+    <Button
+        android:id="@+id/activity_play_entity_turn_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:layout_marginBottom="@dimen/margin_vertical_large"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="END TURN" />
+
+    <ImageView
+        android:id="@+id/activity_play_entity_vitality_imageView"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_play_entity_vitality_textView"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_entity_vitality_textView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_entity_vitality_textView"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <TextView
+        android:id="@+id/activity_play_entity_message_recycler_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/activity_play_entity_recycler_spell"
+        app:layout_constraintStart_toStartOf="@+id/activity_play_entity_recycler_spell"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_entity_constraint_layout_sorter"
+        tools:visibility="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

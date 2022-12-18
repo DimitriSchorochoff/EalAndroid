@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardUseCompatPadding="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cell_map_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cell_background_color">
+
+        <TextView
+            android:id="@+id/cell_map_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="MapName" />
+
+        <TextView
+            android:id="@+id/cell_map_number_ealard_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toStartOf="@+id/cell_map_ealard_icon"
+            app:layout_constraintTop_toTopOf="@+id/cell_map_player_icon"
+            tools:text="3" />
+
+        <ImageView
+            android:id="@+id/cell_map_ealard_icon"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cell_map_number_ealard_textView"
+            app:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+        <ImageView
+            android:id="@+id/cell_map_player_icon"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_map_number_ealard_textView"
+            app:layout_constraintTop_toTopOf="@+id/cell_map_number_player_textView"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+        <TextView
+            android:id="@+id/cell_map_number_player_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size_normal"
+            android:layout_marginEnd="@dimen/margin_horizontal_tiny"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_map_player_icon"
+            app:layout_constraintTop_toBottomOf="@+id/cell_map_name"
+            tools:text="2-4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

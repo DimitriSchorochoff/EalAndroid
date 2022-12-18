@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="vertical">
+
+    <include
+    android:id="@+id/tool_bar"
+    layout="@layout/toolbar"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/play_choose_ealards_gamemode_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        tools:text="Classic" />
+
+    <TextView
+        android:id="@+id/play_choose_ealards_select_ealards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:text="Select fighting ealards:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_choose_ealards_gamemode_textView" />
+
+    <TextView
+        android:id="@+id/play_choose_ealards_num_ealards_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/play_choose_ealards_select_ealards"
+        app:layout_constraintStart_toEndOf="@+id/play_choose_ealards_select_ealards"
+        app:layout_constraintTop_toTopOf="@+id/play_choose_ealards_select_ealards" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/play_choose_ealards_ealards_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_choose_ealards_select_ealards">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/play_choose_ealards_recyler_ealards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_vertical_normal"/>
+
+        <Button
+            android:id="@+id/play_choose_ealards_start_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/icon_size_normal"
+            android:text="Next"
+            android:layout_gravity="bottom"
+            app:layout_anchor="@+id/play_choose_ealards_recyler_ealards"
+            app:layout_anchorGravity="center_horizontal|bottom"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

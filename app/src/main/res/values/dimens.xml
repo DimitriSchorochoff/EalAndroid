@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_padding">8dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_normal">24sp</dimen>
+    <dimen name="text_size_large">36sp</dimen>
+    <dimen name="text_size_big">48sp</dimen>
+
+    <dimen name="margin_horizontal_tiny">8dp</dimen>
+    <dimen name="margin_horizontal_small">16dp</dimen>
+    <dimen name="margin_horizontal_normal">24dp</dimen>
+
+
+    <dimen name="margin_vertical_small">8dp</dimen>
+    <dimen name="margin_vertical_normal">16dp</dimen>
+    <dimen name="margin_vertical_large">32dp</dimen>
+    <dimen name="margin_vertical_big">48dp</dimen>
+    <dimen name="margin_vertical_huge">64dp</dimen>
+
+    <dimen name="icon_size_small">25dp</dimen>
+    <dimen name="icon_size_normal">50dp </dimen>
+    <dimen name="icone_size_doubleNormal">100dp</dimen>
+
+    <dimen name="button_width_large">256dp</dimen>
+
+    <dimen name="historic_layout_height">500dp</dimen>
+    <dimen name="recycler_height_large">600dp</dimen>
+</resources>

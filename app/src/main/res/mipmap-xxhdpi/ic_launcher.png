@@ -1,0 +1,188 @@
+package be.uclouvain.lsinf1225.groupev21.wishlist.DataBase;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
+import android.util.Log;
+
+
+import androidx.annotation.RequiresApi;
+
+import java.util.ArrayList;
+
+import be.uclouvain.lsinf1225.groupev21.wishlist.Entities.MainUser;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Entities.Product;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Entities.User;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Entities.List;
+
+
+public class DBManager {
+
+    private FeedReaderDbHelper dbHelper;
+    private Context context;
+    private SQLiteDatabase dbWrite;
+    private SQLiteDatabase dbRead;
+
+    public DBManager(Context c){
+        this.context = c;
+    }
+
+    public DBManager open () throws SQLException{
+        if(dbWrite == null && dbRead == null){
+            this.dbHelper = FeedReaderDbHelper.getInstance(context);
+            this.dbWrite = dbHelper.getWritableDatabase();
+            this.dbRead = dbHelper.getReadableDatabase();
+        }
+        return this;
+    }
+
+    public void close(){
+        this.dbHelper.close();
+    }
+
+    public void addUser(String email, String password){
+        ContentValues values = new ContentValues();
+
+        values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_EMAIL, email);
+        values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PASSWORD, password);
+
+        dbWrite.insert(FeedReaderContract.UtilisateurEntry.TABLE_NAME, null, values);
+
+    }
+
+    public User getUser(String email){
+        String[] selectionArgs = {email};
+        Cursor cursor = dbRead.rawQuery("SELECT * FROM Utilisateur WHERE email = ?", selectionArgs);
+
+        String nom = "";
+        String prenom = "";
+        String adresse = "";
+        String photoUri = "";
+        String anniversaire ="";
+        while(cursor.moveToNext()){
+            nom = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_NOM));
+            prenom = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PRENOM));
+            adresse = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_ADRESSE));
+            photoUri = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PHOTO));
+            anniversaire = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_ANNIVERSAIRE));
+        }
+        cursor.close();
+
+        return new User(email,nom,prenom,adresse,photoUri,anniversaire);
+    }
+
+    public void editProfile(MainUser mainUser){
+        String adresse = mainUser.getAdresse();
+        String nom = mainUser.getNom();
+        String prenom = mainUser.getPrénom();
+        String uri = mainUser.getPhotoUri();
+        String anniversaire = mainUser.getAnniversaire();
+
+
+        ContentValues values = new ContentValues();
+
+        if(adresse!=null && !adresse.isEmpty()){
+            values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_ADRESSE, adresse);
+        }
+        if(nom!=null && !nom.isEmpty()){
+            values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_NOM, nom);
+        }
+        if(prenom != null && !prenom.isEmpty()){
+            values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PRENOM, prenom);
+        }
+        if(uri != null && !uri.isEmpty()){
+            values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PHOTO, uri);
+        }
+        if (anniversaire != null && !anniversaire.isEmpty()) {
+            values.put(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_ANNIVERSAIRE, anniversaire);
+        }
+
+        String selection = FeedReaderContract.UtilisateurEntry.COLUMN_NAME_EMAIL + "= '" + mainUser.getEmail() + "'";
+        if(!values.keySet().isEmpty()){
+            dbWrite.update(FeedReaderContract.UtilisateurEntry.TABLE_NAME, values, selection, null);
+        }
+
+    }
+
+    public boolean isPasswordCorrect(String email, String password){
+        if(!email.isEmpty() && ! password.isEmpty()){
+            String[] selectionArgs = {email};
+            Cursor cursor = dbRead.rawQuery("SELECT * FROM Utilisateur WHERE email = ?", selectionArgs);
+
+            String realpassword = "";
+            while(cursor.moveToNext()){
+                realpassword = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.UtilisateurEntry.COLUMN_NAME_PASSWORD));
+
+            }
+            cursor.close();
+
+            if(realpassword.equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean emailAlreadyExists(String email){
+        String[] selectionArgs = {email};
+        Cursor cursor = dbRead.rawQuery("SELECT * FROM Utilisateur WHERE email = ?", selectionArgs);
+
+        if(cursor.moveToNext()){
+            cursor.close();
+            return true;
+        }else{
+            cursor.close();
+            return false;
+        }
+    }
+
+    public void addList(List list){
+        ContentValues values = new ContentValues();
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_ID, list.getID());
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_NOM, list.getName());
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_VISIBILITE, list.getVisibility());
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_USEREMAIL, list.getUserId());
+        dbWrite.insert(FeedReaderContract.ListeEntry.TABLE_NAME, null, values);
+    }
+
+    public void deleteList(List list){
+        dbWrite.delete(FeedReaderContract.ListeEntry.TABLE_NAME, FeedReaderContract.ListeEntry.COLUMN_NAME_ID + "= '"+list.getID()+"'" , null);
+        // CASCADE DELETE for products is set in database
+        }
+
+    public void editList(List list){
+        //  Edit List info
+        ContentValues values = new ContentValues();
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_ID, list.getID());
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_NOM, list.getName());
+        values.put(FeedReaderContract.ListeEntry.COLUMN_NAME_VISIBILITE, list.getVisibility());
+        // remplacer l'ancienne ligne avec le meme listId.
+        dbWrite.update(FeedReaderContract.ListeEntry.TABLE_NAME, values, FeedReaderContract.ListeEntry.COLUMN_NAME_ID + "= '" + list.getID()+"'", null);
+    }
+
+    public List getListOfAllBoughtProducts(String userId){
+        String[] selectionArgs = {userId};
+        Cursor cursor = dbRead.rawQuery("SELECT DISTINCT P.listID, P.ID, P.name, P.description, P.rating, P.price, P.isBought, P.photo, P.webURL FROM Product P, List Li, Utilisateur U WHERE  P.listID = Li.ID AND P.isBought = 1 AND Li.user = ?", selectionArgs);
+
+        ArrayList<Product> allBoughtProducts = new ArrayList<Product>();
+
+        String name = "";
+        String description = "";
+        String webURL = "";
+        String photoUri = "";
+        String listId = "";
+        int rating = 0;
+        int price = 0;
+        int isBought = 0;
+        String productId = "";
+
+
+        while(cursor.moveToNext()){
+            productId = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.ProductEntry.COLUMN_NAME_KEY));
+            name = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.ProductEntry.COLUMN_NAME_NAME));
+            description = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.ProductEntry.COLUMN_NAME_DESCRIPTION));
+            webURL = cursor.getString(cursor.getColumnIndexOrThrow(FeedReaderContract.ProductEntry.COLUMN_NAME_WEBURL));
+      

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.eal">
+
+    <application
+        android:name=".Application.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activity.Play.PlayTurnTransitionActivity"></activity>
+        <activity android:name=".Activity.Play.PlayChooseEalardsTransitionActivity"/>
+        <activity android:name=".Activity.Play.PlayMatchOverActivity" />
+        <activity android:name=".Activity.Play.PlayPuppetEalardActivity" />
+        <activity android:name=".Activity.Play.PlayChooseMapActivity" />
+        <activity android:name=".Activity.Play.PlayChooseModeActivity" />
+        <activity android:name=".Activity.Play.PlayEntityActivity" />
+        <activity android:name=".Activity.Play.PlayInGameActivity" />
+        <activity android:name=".Activity.Play.PlayChooseSquadActivitiy" />
+        <activity android:name=".Activity.Play.PlayChooseEalardsActivity" />
+        <activity android:name=".Activity.InvocationActivity" />
+        <activity android:name=".Activity.SpellActivity" />
+        <activity android:name=".Activity.Squad.EditEalardActivity" />
+        <activity android:name=".Activity.Squad.EditSquadActivity" />
+        <activity android:name=".Activity.RuleActivity" />
+        <activity android:name=".Activity.LibraryActivity" />
+        <activity android:name=".Activity.Squad.EditSquadsActivity" />
+        <activity android:name=".Activity.MainMenu" />
+        <activity android:name=".Activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

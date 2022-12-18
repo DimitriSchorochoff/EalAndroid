@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Play.PlayMatchOverActivity"
+    android:scrollbars="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_play_match_over_player_won"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_big"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        tools:text="Player_1 WON" />
+
+    <TextView
+        android:id="@+id/activity_play_match_over_score_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_big"
+        android:gravity="center"
+        android:text="Score:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_match_over_player_won" />
+
+    <Button
+        android:id="@+id/activity_play_match_over_expand_button"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_match_over_score_desc" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_play_match_over_player_recycler"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_match_over_score_desc" />
+
+    <TextView
+        android:id="@+id/activity_play_match_over_map_name_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:gravity="center"
+        android:text="Map name"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_match_over_player_recycler" />
+
+    <TextView
+        android:id="@+id/activity_play_match_over_winner_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:gravity="center"
+        android:text="Winner"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_match_over_map_name_desc" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_play_match_over_map_wonner_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:layout_marginBottom="@dimen/margin_vertical_large"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_match_over_quit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_match_over_map_name_desc" />
+
+    <Button
+        android:id="@+id/activity_play_match_over_quit_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginEnd="@dimen/margin_horizontal_normal"
+        android:layout_marginBottom="@dimen/margin_vertical_normal"
+        android:text="Back to menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Play.PlayChooseModeActivity"
+    android:scrollbars="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/activity_play_choose_mode_spinner"
+        android:layout_width="@dimen/button_width_large"
+        android:layout_height="@dimen/icon_size_normal"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_choose_mode_number_player_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_roadTo_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:gravity="center"
+        android:text="Road to:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_choose_mode_next_button"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_roadTo_num"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_choose_mode_number_puppet_desc" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_number_puppet_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:gravity="center"
+        android:text="Number of puppet:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_choose_mode_roadTo_desc"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_puppet_textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_choose_mode_number_player_desc" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_roadTo_num"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_roadTo_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_roadTo_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_roadTo_desc"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_number_puppet_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_puppet_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_puppet_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_puppet_desc"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_roadTo_plus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_small"
+        android:text="+"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_roadTo_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_roadTo_num"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_roadTo_num" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_number_puppet_plus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_small"
+        android:text="+"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_puppet_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_puppet_textView"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_puppet_textView" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_roadTo_minus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:text="-"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_roadTo_plus"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_roadTo_plus" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_number_puppet_minus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:text="-"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_puppet_plus"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_puppet_plus" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_number_player_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:gravity="center"
+        android:text="Number of player:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toTopOf="@+id/activity_play_choose_mode_number_puppet_desc"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_player_num"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_choose_mode_spinner" />
+
+    <TextView
+        android:id="@+id/activity_play_choose_mode_number_player_num"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_player_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_player_desc"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_player_desc"
+        tools:text="2" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_number_player_plus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_small"
+        android:text="+"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@+id/activity_play_choose_mode_number_player_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_player_num"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_player_num" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_number_player_minus"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:text="-"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/activity_play_choose_mode_number_player_plus"
+        app:layout_constraintTop_toTopOf="@+id/activity_play_choose_mode_number_player_plus" />
+
+    <Button
+        android:id="@+id/activity_play_choose_mode_next_button"
+        android:layout_width="@dimen/button_width_large"
+        android:layout_height="@dimen/icon_size_normal"
+        android:layout_marginTop="@dimen/margin_vertical_big"
+        android:text="Next"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_play_choose_mode_roadTo_desc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

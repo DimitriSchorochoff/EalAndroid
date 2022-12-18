@@ -1,0 +1,222 @@
+package be.uclouvain.lsinf1225.groupev21.wishlist.Activities;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import be.uclouvain.lsinf1225.groupev21.wishlist.DataBase.DBManager;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Entities.MainUser;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Fragments.FriendListFragment;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Fragments.FriendRefusedFragment;
+import be.uclouvain.lsinf1225.groupev21.wishlist.Fragments.FriendRequestsFragment;
+import be.uclouvain.lsinf1225.groupev21.wishlist.R;
+
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+
+public class FriendActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
+
+    private DBManager dbManager;
+    private boolean back = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_friend_drawer);
+
+        dbManager = new DBManager(this);
+        dbManager.open();
+
+        ViewPager viewPager = findViewById(R.id.viewpager);
+        addTabs(viewPager);
+
+        setToolbar();
+        initHeader();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!back){
+            dbManager.close();
+            MainUser.getCurrentUser().logOut();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        back = true;
+        this.finish();
+    }
+
+    private void initHeader(){
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView nav_email = headerView.findViewById(R.id.headerName);
+        nav_email.setText(MainUser.getCurrentUser().getEmail());
+        CircleImageView nav_photo = headerView.findViewById(R.id.nav_photo);
+        if(MainUser.getCurrentUser().getPhotoUri() != null && !MainUser.getCurrentUser().getPhotoUri().isEmpty()){
+            nav_photo.setImageURI(Uri.parse(MainUser.getCurrentUser().getPhotoUri()));
+        }
+    }
+
+
+    private void setToolbar(){
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        toolbar.setNavigationIcon(R.drawable.ic_menu_principal);
+
+        //Add friend icon
+        ImageView iconAdd = findViewById(R.id.AddIcon);
+        iconAdd.setVisibility(View.VISIBLE);
+        iconAdd.setOnClickListener(v-> addFriendDialog());
+
+        toolbar.setTitle("Mes amis");
+
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(v-> drawer.openDrawer(Gravity.LEFT));
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_accueil) {
+            Intent listActivity = new Intent(this, ShowMultipleListsActivity.class);
+            listActivity.putExtra("isMine",true);
+            startActivity(listActivity);
+
+        } else if (id == R.id.nav_moncompte) {
+            Intent profileActivity = new Intent(this, ProfileActivity.class);
+            profileActivity.putExtra("isMine",true);
+            startActivity(profileActivity);
+
+        } else if (id == R.id.nav_logout) {
+            Intent loginActivity = new Intent(this, LogInActivity.class);
+            MainUser.getCurrentUser().logOut();
+            startActivity(loginActivity);
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void addTabs(ViewPager viewPager) {
+        FriendPagerAdapter adapter = new FriendPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new FriendListFragment(adapter), "Mes amis");
+        adapter.addFrag(new FriendRequestsFragment(adapter), "Invitations");
+        adapter.addFrag(new FriendRefusedFragment(adapter), "Refusés");
+        viewPager.setAdapter(adapter);
+    }
+
+    private void addFriendDialog(){
+        android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_add_friend, null);
+        dialogBuilder.setView(dialogView);
+
+        EditText editFriendEmail = dialogView.findViewById(R.id.ListNameDialogList);
+        Button buttonAddFriend = dialogView.findViewById(R.id.button_add);
+        TextView majMessage = dialogView.findViewById(R.id.MajMessage);
+        TextView exit = dialogView.findViewById(R.id.exit);
+
+        AlertDialog dialog = dialogBuilder.create();
+
+        majMessage.setVisibility(View.GONE);
+
+        buttonAddFriend.setOnClickListener(v -> {
+            majMessage.setVisibility(View.VISIBLE);
+            String email = editFriendEmail.getText().toString();
+            String status = dbManager.friendStatut(MainUser.getCurrentUser(), email);
+            if(MainUser.getCurrentUser().getEmail().equals(email)){
+                majMessage.setText("Vous ne pouvez pas vous ajouter en tant qu'ami...");
+            }else{
+                if(dbManager.emailAlreadyExists(email)){
+                    if (status.equals("Confirmé")) majMessage.setText("Vous êtes déjà ami avec cet utilisateur");
+                    else if (status.equals("En attente")) majMessage.setText("Votre demande attend une réponse de l'utilisateur");
+                    else if (status.equals("Refusé")) majMessage.setText("Votre demande à déjà été refusée par l'utilisateur");
+                    else if (status.equals("NotFriend")){
+                        dbManager.addFriend(MainUser.getCurrentUser(), email);
+                        Toast.makeText(FriendActivity.this, "Votre demande a été envoyé avec succès", Toast.LENGTH_SHORT).show();
+                        //Notify change
+                        dialog.dismiss();
+                    }
+                }else{
+                    majMessage.setText("Cet utilisateur n'existe pas !");
+                }
+
+            }
+        });
+
+        exit.setOnClickListener(view -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+
+
+    public class FriendPagerAdapter extends FragmentPagerAdapter {
+        private final ArrayList<String> fragmentsTitle = new ArrayList<>();
+        private final ArrayList<androidx.fragment.app.Fragment> fragmentsList = new ArrayList<>();
+
+        public FriendPagerAdapter(FragmentManager manager){
+            super(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentsList.get(position);
+        }
+
+
+        @Override
+        public int getCount() {
+            return fragmentsList.size();
+        }
+
+        public void addFrag(Fragment fragment, String title) {
+            fragmentsList.add(fragment);
+            fragmentsTitle.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return fragmentsTitle.get(position);
+        }
+    }
+
+
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

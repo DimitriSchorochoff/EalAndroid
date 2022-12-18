@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SpellActivity"
+    android:scrollbars="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spell_activity_elem_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:text="Element:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+    <TextView
+        android:id="@+id/spell_activity_textView_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_elem_desc"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_elem_desc" />
+
+    <TextView
+        android:id="@+id/spell_activity_effect_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:text="Effect:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_elem_desc" />
+
+    <TextView
+        android:id="@+id/spell_activity_textView_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_effect_desc"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_effect_desc" />
+
+    <ImageView
+        android:id="@+id/spell_activity_imageView_effect"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_textView_power"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_textView_power"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_textView_power"
+        tools:srcCompat="@drawable/ic_damage_icon" />
+
+    <TextView
+        android:id="@+id/spell_activity_energy_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:text="Cost:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spell_activity_effect_desc" />
+
+    <TextView
+        android:id="@+id/spell_activity_textView_energy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_energy_desc"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_energy_desc" />
+
+    <ImageView
+        android:id="@+id/spell_activity_imageView_energy"
+        android:layout_width="@dimen/icon_size_normal"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_textView_energy"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_textView_energy"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_textView_energy"
+        tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+    <TextView
+        android:id="@+id/spell_activity_range_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:text="Range:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_energy_desc" />
+
+    <ImageView
+        android:id="@+id/spell_activity_imageView_area"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_area_tV"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_imageView_range" />
+
+    <ImageView
+        android:id="@+id/spell_activity_imageView_range"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_range_tV"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_range_tV"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_range_tV" />
+
+    <TextView
+        android:id="@+id/spell_activity_area_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:text="Area:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_area_tV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_area_tV" />
+
+    <TextView
+        android:id="@+id/spell_activity_description_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:text="Description:"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_imageView_area" />
+
+    <TextView
+        android:id="@+id/spell_activity_area_tV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_imageView_area"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_area_desc"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_imageView_area"
+        tools:text="Star 2" />
+
+    <TextView
+        android:id="@+id/spell_activity_range_tV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_tiny"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/spell_activity_range_desc"
+        app:layout_constraintStart_toEndOf="@+id/spell_activity_range_desc"
+        app:layout_constraintTop_toTopOf="@+id/spell_activity_range_desc"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Star 2" />
+
+    <TextView
+        android:id="@+id/spell_activity_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_normal"
+        android:layout_marginTop="@dimen/margin_vertical_normal"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_description_desc" />
+
+    <TextView
+        android:id="@+id/spell_activity_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_large"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spell_activity_description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
